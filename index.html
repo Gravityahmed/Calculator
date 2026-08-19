@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="./Style/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Calculator</h1>
+      <div class="page-shell">
+        <div class="credit-box">
+          <p>Made by:</p>
+          <a
+            href="https://gravityahmed.github.io/My-Portfolio-1/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            gravity_a7med
+          </a>
+        </div>
+
+        <!-- <div class="result">
+          <span>Result:</span>
+          <h2 id="Result">_</h2>
+        </div>
+        <div class="textboxes">
+          <input
+            type="text"
+            name=""
+            id="firstNumber"
+            placeholder="Enter first number"
+          />
+          <input
+            type="text"
+            name=""
+            id="secondNumber"
+            placeholder="Enter second number"
+          />
+        </div>
+        <div class="operators">
+          <button onclick="calculate('+')">+</button>
+          <button onclick="calculate('-')">-</button>
+          <button onclick="calculate('*')">x</button>
+          <button onclick="calculate('/')">/</button>
+        </div> -->
+        <form>
+          <input type="text" name="" id="txtbox" placeholder="" readonly />
+
+          <div class="buttons_numbers">
+            <button
+              value="1"
+              type="button"
+              onclick="calculator.WriteText(this)"
+            >
+              1
+            </button>
+            <button
+              value="2"
+              type="button"
+              onclick="calculator.WriteText(this)"
+            >
+              2
+            </button>
+            <button
+              value="3"
+              type="button"
+              onclick="calculator.WriteText(this)"
+            >
+              3
+            </button>
+            <button
+              value="4"
+              type="button"
+              onclick="calculator.WriteText(this)"
+            >
+              4
+            </button>
+            <button
+              value="5"
+              type="button"
+              onclick="calculator.WriteText(this)"
+            >
+              5
+            </button>
+            <button
+              value="6"
+              type="button"
+              onclick="calculator.WriteText(this)"
+            >
+              6
+            </button>
+            <button
+              value="7"
+              type="button"
+              onclick="calculator.WriteText(this)"
+            >
+              7
+            </button>
+            <button
+              value="8"
+              type="button"
+              onclick="calculator.WriteText(this)"
+            >
+              8
+            </button>
+            <button
+              value="9"
+              type="button"
+              onclick="calculator.WriteText(this)"
+            >
+              9
+            </button>
+            <div class="first_2_opertors">
+              <button
+                value="+"
+                type="button"
+                onclick="calculator.operatorClick(this)"
+              >
+                +
+              </button>
+              <button
+                value="-"
+                type="button"
+                onclick="calculator.operatorClick(this)"
+              >
+                -
+              </button>
+            </div>
+            <button
+              value="0"
+              type="button"
+              class="zero-btn"
+              onclick="calculator.WriteText(this)"
+            >
+              0
+            </button>
+            <div class="last_2_operators">
+              <button
+                value="*"
+                type="button"
+                onclick="calculator.operatorClick(this)"
+              >
+                *
+              </button>
+              <button
+                value="/"
+                type="button"
+                onclick="calculator.operatorClick(this)"
+              >
+                /
+              </button>
+            </div>
+          </div>
+          <div class="result_buttons">
+            <button
+              class="result_button"
+              type="button"
+              onclick="calculator.Calculation()"
+            >
+              =
+            </button>
+            <div class="delete_dot_buttons">
+              <button type="button" onclick="calculator.Delete()">c</button>
+              <button type="button" onclick="calculator.dotClick()">.</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

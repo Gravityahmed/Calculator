@@ -1,0 +1,439 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+html {
+  background: linear-gradient(135deg, #bcdaff 10%, #d874d3 100%);
+  background-size: 200% 200%;
+  background-attachment: fixed;
+  animation: gradientIntro 6s ease infinite;
+}
+body {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2rem;
+}
+
+@keyframes gradientIntro {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes slideDownTitle {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+button {
+  cursor: pointer;
+}
+.container {
+  padding-inline: 15rem;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.page-shell {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.credit-box {
+  position: fixed;
+  left: 2rem;
+  bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 12rem;
+  padding: 1rem 1.1rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(10, 10, 10, 0.12);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(4px);
+  z-index: 10;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.credit-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 28px rgba(15, 23, 42, 0.14);
+  border-color: rgba(10, 10, 10, 0.22);
+}
+
+.credit-box p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(17, 17, 17, 0.8);
+}
+
+.credit-box a {
+  position: relative;
+  display: inline-block;
+  margin-top: 0.35rem;
+  font-size: 1rem;
+  color: #1d1d1d;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.credit-box a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+.credit-box a:hover {
+  opacity: 0.75;
+  transform: translateX(2px);
+}
+
+.credit-box a:hover::after {
+  transform: scaleX(1);
+}
+
+.container h1 {
+  /* text-transform: uppercase; */
+  margin-bottom: 5rem;
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  letter-spacing: 0.08rem;
+  color: rgba(18, 18, 18, 0.9);
+  text-shadow: 0 4px 12px rgba(255, 255, 255, 0.25);
+  animation: slideDownTitle 0.8s ease-out;
+}
+/*============ Start simple calculator styling ============= */
+
+.result {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.result h2 {
+  font-size: 1.8rem;
+  margin-top: 0.3rem;
+}
+.container span {
+  font-size: 2rem;
+  align-self: center;
+}
+.operators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.operators button {
+  width: calc((100% - 3rem) / 4);
+  height: 2rem;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  background: rgba(10, 10, 10, 0.05);
+  border: 1px solid rgba(10, 10, 10, 0.4);
+  cursor: pointer;
+  box-shadow: 0 1px 10px rgba(15, 23, 42, 0.08);
+  transition: all 0.3s ease-in-out;
+}
+.operators button:hover {
+  transform: translateY(-3px);
+  border: 1px solid rgba(10, 10, 10, 0.8);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18);
+}
+
+.textboxes {
+  display: flex;
+  gap: 1rem;
+}
+.textboxes input {
+  height: 2rem;
+  width: 15rem;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  background: transparent;
+  border: 1px solid rgba(10, 10, 10, 0.2);
+  padding: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.textboxes input:focus {
+  border: 1px solid rgba(10, 10, 10, 0.5);
+  box-shadow: 0 0 0 3px rgba(10, 10, 10, 0.05);
+  background: rgba(10, 10, 10, 0.05);
+}
+
+#Result {
+  justify-self: center;
+  align-self: center;
+}
+
+/*============ Start advanced calculator styling ============= */
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+form input {
+  outline: none;
+  width: 25rem;
+  padding-inline: 1rem;
+  border: none;
+  height: 2rem;
+  border-radius: 10px;
+  /* background: rgba(255, 255, 255, 0.5); */
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(10, 10, 10, 0.2);
+  margin-bottom: 1rem;
+}
+form input:focus {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.border_bottom {
+  width: 24rem;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.2);
+}
+.buttons_numbers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 25rem;
+  gap: 1rem;
+  /* margin-bottom: 1rem; */
+}
+
+.buttons_numbers button {
+  width: calc((100% - 2rem) / 3);
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  height: 2.5rem;
+  border: 1px solid rgba(10, 10, 10, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+.buttons_numbers button:hover {
+  background: rgba(10, 10, 10, 0.05);
+}
+
+.zero-btn {
+  margin: 0 auto;
+}
+.first_2_opertors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: calc((100% - 2rem) / 3);
+}
+.first_2_opertors button {
+  width: calc((100% - 0.5rem) / 2);
+  border: 1px solid rgba(10, 10, 10, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.last_2_operators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: calc((100% - 2rem) / 3);
+}
+.last_2_operators button {
+  width: calc((100% - 0.5rem) / 2);
+  border: 1px solid rgba(10, 10, 10, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.result_button {
+  width: 100%;
+  flex-grow: 2;
+  height: 2.5rem;
+}
+
+.result_buttons {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.delete_dot_buttons {
+  display: flex;
+  gap: 0.5rem;
+  width: 8rem;
+}
+
+.delete_dot_buttons button {
+  flex: 1;
+  height: 2.5rem;
+  border: 1px solid rgba(10, 10, 10, 0.2);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 900px) {
+  .container {
+    padding-inline: 2rem;
+  }
+
+  .page-shell {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .credit-box {
+    position: static;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .container {
+    padding-inline: 1rem;
+    padding-top: 1.5rem;
+  }
+
+  .container h1 {
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+  }
+
+  form input,
+  .buttons_numbers {
+    width: 100%;
+    max-width: 22rem;
+  }
+
+  .buttons_numbers button {
+    width: calc((100% - 1rem) / 2);
+  }
+
+  .first_2_opertors,
+  .last_2_operators {
+    width: calc((100% - 1rem) / 2);
+  }
+
+  .result_buttons {
+    width: 100%;
+    max-width: 22rem;
+  }
+}
+
+@media (max-height: 700px) {
+  .container {
+    gap: 0.75rem;
+    padding-top: 1rem;
+  }
+
+  .container h1 {
+    margin-bottom: 1.5rem;
+    padding-top: 0.5rem;
+    font-size: 1.6rem;
+  }
+
+  form input {
+    height: 1.8rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .buttons_numbers button,
+  .first_2_opertors button,
+  .last_2_operators button,
+  .result_button,
+  .delete_dot_buttons button {
+    height: 2.2rem;
+  }
+
+  .credit-box {
+    left: 1rem;
+    bottom: 1rem;
+    padding: 0.8rem 0.9rem;
+  }
+}
+.delete_dot_buttons button:hover {
+  background: rgba(10, 10, 10, 0.05);
+}
+
+.delete_dot_buttons {
+  flex: 1 47%;
+  width: auto;
+  justify-content: space-between;
+  gap: 0.5rem;
+  display: flex;
+}
+.delete_dot_buttons button {
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  height: 2.5rem;
+  border: 1px solid rgba(10, 10, 10, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease-in-out;
+  width: calc((100%) / 2);
+}
+.result_button {
+  width: 100%;
+  border: none;
+  outline: none;
+  height: 2.5rem;
+  border-radius: 10px;
+  border: 1px solid rgba(10, 10, 10, 0.2);
+  background-color: rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+}
+.number_zero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.result_button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 20px rgba(15, 23, 42, 0.14);
+  border-color: rgba(10, 10, 10, 0.22);
+}
+.number_zero button {
+  width: calc((100% - 2rem) / 3);
+}
